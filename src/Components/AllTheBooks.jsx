@@ -8,7 +8,6 @@ import { Component } from "react";
 import { Badge, Button, Col, Container, Row } from "react-bootstrap";
 /* import MyNav from "./MyNav"; */
 const libri = [fantasy, history, horror, romance, scifi];
-const index = [0, 1, 2, 3, 4];
 class AllTheBooks extends Component {
   state = {
     categoria: libri[0],
@@ -40,7 +39,7 @@ class AllTheBooks extends Component {
           {this.state.categoria.map((libro) => {
             return (
               <Col xs={6} md={3} xl={3} key={`id=${libro.asin}`}>
-                <Card style={{ width: "18rem", height: "40rem" }}>
+                <Card style={{ width: "18rem", height: "42rem" }}>
                   <Card.Img variant="top" src={libro.img} />
                   <Card.Body>
                     <Card.Title>{libro.title}</Card.Title>

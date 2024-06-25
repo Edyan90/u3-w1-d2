@@ -9,19 +9,13 @@ function App() {
   return (
     <div className="">
       <header>
-        <MyNav></MyNav>
+        <MyNav />
       </header>
       <main>
         <Welcome></Welcome>
-        <AllTheBooks
-          opzione1="fantasy"
-          opzione2="history"
-          opzione3="horror"
-          opzione4="romance"
-          opzione5="scifi"
-        ></AllTheBooks>
+        <AllTheBooks />
       </main>
-      <MyFooter></MyFooter>
+      <MyFooter />
     </div>
   );
 }
