@@ -1,23 +1,45 @@
 import Card from "react-bootstrap/Card";
 import fantasy from "../data/books/fantasy.json";
+import history from "../data/books/history.json";
+import horror from "../data/books/horror.json";
+import romance from "../data/books/romance.json";
+import scifi from "../data/books/scifi.json";
 import { Component } from "react";
 import { Badge, Button, Col, Container, Row } from "react-bootstrap";
-import MyNav from "./MyNav";
-
+/* import MyNav from "./MyNav"; */
+const libri = [fantasy, history, horror, romance, scifi];
+const index = [0, 1, 2, 3, 4];
 class AllTheBooks extends Component {
   state = {
-    categoria: fantasy,
+    categoria: libri[0],
   };
   render() {
     return (
       <Container fluid="md" className="mt-5">
+        <div className="d-flex justify-content-between">
+          <button className="btn btn-info me-5 mb-5" onClick={() => this.setState({ categoria: fantasy })}>
+            fantasy
+          </button>
+          <button className="btn btn-info me-5 mb-5" onClick={() => this.setState({ categoria: history })}>
+            history
+          </button>
+          <button className="btn btn-info me-5 mb-5" onClick={() => this.setState({ categoria: horror })}>
+            horror
+          </button>
+          <button className="btn btn-info me-5 mb-5" onClick={() => this.setState({ categoria: romance })}>
+            romance
+          </button>
+          <button className="btn btn-info me-5 mb-5" onClick={() => this.setState({ categoria: scifi })}>
+            scifi
+          </button>
+        </div>
         <Row
           className="justify-content-between gap-5
         "
         >
-          {fantasy.map((libro) => {
+          {this.state.categoria.map((libro) => {
             return (
-              <Col xs={6} md={3} xl={3}>
+              <Col xs={6} md={3} xl={3} key={`id=${libro.asin}`}>
                 <Card style={{ width: "18rem", height: "40rem" }}>
                   <Card.Img variant="top" src={libro.img} />
                   <Card.Body>
