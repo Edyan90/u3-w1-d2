@@ -15,7 +15,15 @@ class BookList extends Component {
     },
   };
 
+  handleFormSubmit = (event) => {
+    event.preventDefault(); // Previene il comportamento predefinito del submit
+  };
   render() {
+    const { categoria, formValue } = this.state;
+    const { searchForm } = formValue;
+    const filteredBooks = searchForm //Se questa è vera ovvero contiene un valore allora creami i libri filtrati altrimenti la categoria selezionata
+      ? categoria.filter((libro) => libro.title.toLowerCase().includes(searchForm.toLowerCase()))
+      : categoria;
     return (
       <Container fluid="md" className="mt-5">
         <div>
@@ -44,6 +52,7 @@ class BookList extends Component {
             <Row>
               <Col xs="auto">
                 <Form.Control
+                  onSubmit={this.handleFormSubmit}
                   type="text"
                   placeholder="Search"
                   className=" mr-sm-2"
@@ -59,15 +68,10 @@ class BookList extends Component {
           </Form>
         </div>
         <Row className="justify-content-between gap-5">
-          {this.state.formValue ? (
-            this.state.categoria
-              .filter((libro) => libro.title.toLowerCase().includes(this.state.formValue.searchForm.toLowerCase()))
-              .map((newLibro) => <SingleBook category={newLibro} />)
+          {searchForm && filteredBooks.length === 0 ? (
+            <Alert variant="danger"> Mi dispiace, titolo non trovato</Alert>
           ) : (
-            <>
-              <Alert> Mi dispiace titolo non trovato</Alert>
-              <SingleBook category={this.state.categoria} />
-            </>
+            filteredBooks.map((newLibro) => <SingleBook key={newLibro.asin} ciccia={newLibro} />)
           )}
           {/* this.state.categoria.map((libro) => <SingleBook category={libro} )/>*/}
         </Row>
