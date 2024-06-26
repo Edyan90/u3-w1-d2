@@ -15,7 +15,7 @@ class AllTheBooks extends Component {
   render() {
     return (
       <Container fluid="md" className="mt-5">
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-evenly">
           <button className="btn btn-info me-5 mb-5" onClick={() => this.setState({ categoria: fantasy })}>
             fantasy
           </button>
@@ -32,13 +32,10 @@ class AllTheBooks extends Component {
             scifi
           </button>
         </div>
-        <Row
-          className="justify-content-between gap-5
-        "
-        >
+        <Row className="justify-content-between gap-5">
           {this.state.categoria.map((libro) => {
             return (
-              <Col xs={6} md={3} xl={3} key={`id=${libro.asin}`}>
+              <Col xs={12} md={5} lg={5} xl={3} key={`id=${libro.asin}`}>
                 <Card style={{ width: "18rem", height: "42rem" }}>
                   <Card.Img variant="top" src={libro.img} />
                   <Card.Body>
