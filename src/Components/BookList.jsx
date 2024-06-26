@@ -68,12 +68,12 @@ class BookList extends Component {
           </Form>
         </div>
         <Row className="justify-content-between gap-5">
+          {/* Se SearchForm esiste e filteredBooks è vuoto ovvero non ha trovato il libro richiesto allora mostri altrimenti mi fai il map dei libri trovati con quel parametro */}
           {searchForm && filteredBooks.length === 0 ? (
             <Alert variant="danger"> Mi dispiace, titolo non trovato</Alert>
           ) : (
             filteredBooks.map((newLibro) => <SingleBook key={newLibro.asin} ciccia={newLibro} />)
           )}
-          {/* this.state.categoria.map((libro) => <SingleBook category={libro} )/>*/}
         </Row>
       </Container>
     );

@@ -13,7 +13,11 @@ class SingleBook extends Component {
       <Col xs={12} md={5} lg={5} xl={3}>
         {console.log(this.props.ciccia)}
         <Card
-          style={{ width: "18rem", height: "42rem", border: this.state.selected ? "2px solid crimson" : "none" }}
+          style={{
+            width: "18rem",
+            height: "42rem",
+            border: this.state.selected ? "3px solid crimson" : "1px solid grey",
+          }}
           onClick={this.selezionato}
         >
           <Card.Img variant="top" src={this.props.ciccia.img} />
