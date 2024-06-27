@@ -4,7 +4,7 @@ import AddComments from "./AddComments";
 
 class CommentArea extends Component {
   state = {
-    comments: "",
+    comments: [],
   };
 
   fetchComments = () => {
@@ -34,8 +34,8 @@ class CommentArea extends Component {
     return (
       <>
         {console.log(this.props.bookID)}
-        <CommentsList Commenti={this.state.comments} idLibro={this.props.bookID} />
-        <AddComments />
+        <CommentsList commenti={this.state.comments} idLibro={this.props.bookID} />
+        {/* <AddComments /> */}
       </>
     );
   }
