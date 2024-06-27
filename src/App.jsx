@@ -8,7 +8,7 @@ import BookList from "./Components/BookList";
 
 function App() {
   return (
-    <div className="">
+    <div>
       <header>
         <MyNav />
       </header>

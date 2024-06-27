@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Col, Card, Button, Badge } from "react-bootstrap";
+import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
   state = {
@@ -10,8 +11,8 @@ class SingleBook extends Component {
   };
   render() {
     return (
-      <Col xs={12} md={5} lg={5} xl={3}>
-        {console.log(this.props.ciccia)}
+      <Col xs={12} md={4} lg={4} xl={3}>
+        {/* {console.log(this.props.ciccia)} */}
         <Card
           style={{
             width: "18rem",
@@ -25,11 +26,13 @@ class SingleBook extends Component {
             <Card.Title>{this.props.ciccia.title}</Card.Title>
             <Card.Text>{this.props.ciccia.category}</Card.Text>
           </Card.Body>
+
           <div className="d-flex justify-content-between align-items-center mt-auto mb-2 mx-3">
             <Button variant="primary">Buy</Button>
             <Badge bg="danger">{this.props.ciccia.price} €</Badge>
           </div>
         </Card>
+        {this.state.selected && <CommentArea bookID={this.props.ciccia.asin} />}
       </Col>
     );
   }
