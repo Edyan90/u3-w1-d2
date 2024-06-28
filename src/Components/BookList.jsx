@@ -72,7 +72,7 @@ class BookList extends Component {
           {searchForm && filteredBooks.length === 0 ? (
             <Alert variant="danger"> Mi dispiace, titolo non trovato</Alert>
           ) : (
-            filteredBooks.map((newLibro) => <SingleBook key={newLibro.asin} ciccia={newLibro} />)
+            filteredBooks.map((newLibro) => <SingleBook key={newLibro.asin} book={newLibro} />)
           )}
         </Row>
       </Container>

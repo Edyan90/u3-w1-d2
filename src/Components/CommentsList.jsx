@@ -5,12 +5,11 @@ import SingleComment from "./SingleComment";
 class CommentsList extends Component {
   render() {
     return (
-      <div>
-        <h5>Comments:</h5>
-        <ListGroup>
-          <SingleComment arrComments={this.props.commenti} />
-        </ListGroup>
-      </div>
+      <ListGroup>
+        {this.props.commenti.map((commento) => (
+          <SingleComment key={commento._id} commenti={commento} ricarica={this.props.ricarica} />
+        ))}
+      </ListGroup>
     );
   }
 }

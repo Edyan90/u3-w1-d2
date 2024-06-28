@@ -21,18 +21,18 @@ class SingleBook extends Component {
           }}
           onClick={this.selezionato}
         >
-          <Card.Img variant="top" src={this.props.ciccia.img} />
+          <Card.Img variant="top" src={this.props.book.img} />
           <Card.Body>
-            <Card.Title>{this.props.ciccia.title}</Card.Title>
-            <Card.Text>{this.props.ciccia.category}</Card.Text>
+            <Card.Title>{this.props.book.title}</Card.Title>
+            <Card.Text>{this.props.book.category}</Card.Text>
           </Card.Body>
 
           <div className="d-flex justify-content-between align-items-center mt-auto mb-2 mx-3">
             <Button variant="primary">Buy</Button>
-            <Badge bg="danger">{this.props.ciccia.price} €</Badge>
+            <Badge bg="danger">{this.props.book.price} €</Badge>
           </div>
         </Card>
-        {this.state.selected && <CommentArea bookID={this.props.ciccia.asin} />}
+        {this.state.selected && <CommentArea asin={this.props.book.asin} />}
       </Col>
     );
   }
