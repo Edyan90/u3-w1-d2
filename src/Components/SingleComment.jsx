@@ -26,7 +26,7 @@ class SingleComment extends Component {
 
   render() {
     return (
-      <ListGroupItem className="text-center">
+      <ListGroupItem className="text-center" key={this.props.commenti._id}>
         <h6>{this.props.commenti.author}</h6>
         <p>{this.props.commenti.comment}</p>
         <Badge>{this.props.commenti.rate}</Badge>

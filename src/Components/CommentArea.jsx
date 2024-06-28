@@ -1,11 +1,12 @@
 import { Component } from "react";
 import CommentsList from "./CommentsList";
-/* import AddComments from "./AddComments"; */
+import AddComments from "./AddComments";
 import { Alert } from "react-bootstrap";
 
 class CommentArea extends Component {
   state = {
     comments: [],
+    isLoading: true,
   };
 
   fetchComments = () => {
@@ -41,8 +42,8 @@ class CommentArea extends Component {
         ) : (
           <Alert>non ci sono commenti</Alert>
         )}
-
-        {/* <AddComments /> */}
+        <h6 className="mt-3">Inserisci il tuo feedback:</h6>
+        <AddComments asin={this.props.asin} ricarica={this.fetchComments} />
       </div>
     );
   }
